@@ -1,0 +1,14 @@
+--To check the PK constraits on what table on replication
+SELECT 
+    t.name AS table_name,
+    c.name AS constraint_name
+FROM 
+    sys.tables AS t
+INNER JOIN 
+    sys.key_constraints AS c 
+    ON t.object_id = c.parent_object_id
+WHERE 
+    c.type = 'PK' 
+    AND c.name LIKE '%PK_Table6_35700E3BDC20126X%'
+ORDER BY 
+    table_name;
